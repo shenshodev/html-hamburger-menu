@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    position: relative;
+    height: 1000vh;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgb(163, 163, 163);
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    color: #000;
+    text-decoration: none;
+}
+
+.container {
+    width: 1600px;
+    margin: auto;
+}
+
+.subcontainer{
+    width: 85%;
+    margin: auto;
+}
+
+.navbar{
+    width: 100%;
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__branding{
+        font-size: 2rem;
+    }
+
+    .nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+    }
+
+    &__hamburger{
+        display: none;
+        cursor: pointer;
+
+        .bar{
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            background-color: #000;
+        }
+    }
+}
+
+#home{
+    margin-top: 70px;
+    height: 100vh;
+    background-color: rgb(243, 238, 162);
+}
+#about{
+    height: 100vh;
+    background-color: rgba(243, 215, 162, 0.918);
+}
+
+@media(max-width: 1660px){
+    .container{
+        width: 100%;
+    }
+}
+
+@media(max-width: 1024px){
+    .navbar{
+        .nav{
+            position: fixed;
+            gap: 0;
+            flex-direction: column;
+            background-color: #dadada;
+            width: 100%;
+            text-align: center;
+            transition: all 0.3s ease;
+            &__item{
+                margin: 16px 0;
+            }
+            &.top-to-bottom{
+                top: -100%;
+                left: 0;
+                right: 0;
+                &.active{
+                    top: 70px;
+                }
+            }
+
+            &.left-to-right{
+                left: -100%;
+                top: 70px;
+                &.active{
+                    left: 0px;
+                }
+            }
+        }
+
+        &__hamburger{
+            display: block;
+            &.active{
+                .bar{
+                    &:nth-child(1){
+                        transform: translateY(8px) rotate(45deg);
+                    }
+                    &:nth-child(2){
+                        opacity: 0;
+                    }
+                    &:nth-child(3){
+                        transform: translateY(-8px) rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+}
